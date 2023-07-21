@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트의 기본01 - 변수의 선언과 사용</title>
+</head>
+<body>
+    <div id="result"></div>
+    <ul class="lst">
+        <li class="item1"></li>
+        <li class="item2"></li>
+        <li class="item3"></li>
+        <li class="item4"></li>
+    </ul>
+    <hr>
+    <nav><a href="">메뉴</a>
+        <a href="">메뉴</a>
+        <a href="">메뉴</a>
+    </nav>
+    <hr>
+    <ul class="lst">
+        <li class="item1"></li>
+        <li class="item2"></li>
+        <li class="item3"></li>
+        <li class="item4"></li>
+    </ul>
+    <div id="res2"></div>
+    <button type="button" onclick="fnc3()" id="btn1">인라인 이벤트 발생</button>
+    <button type="button" id="btn2">DOM 탐색 이벤트 발생</button>
+    <script>
+        //자바에는 변수 객체 함수 메소드 이벤트 dom컨트롤이 있다
+        //자바언어처럼 타입지시자를 사용하지 않는다. int, String 구분없음. 형(type)변환 자동으로 일어남
+        
+    var data1 = "ㄱㄷㄷ"; //var는 재선언이 가능하고, 값도 언제나 변경할 수 있음.
+    let data2 = "ㄴㄷㄷ"; //let은 재선언이 불가능하나 값은 언제나 변경할 수 있음.
+    const data3 ="다다다"; //const(constant)는 재선언 안됨, 값 변경 할 수 없음. 상수임
+    console.log(data1); //자바의 sout을 console.log로 한다
+
+    var data1 = "천재";    
+    data2 = "바보"; //let은 재선언 불가능해서 그냥 값만 바꿈
+    
+    //함수 정의 문법
+    function fnc1() { //함수는 호출되어야만 실행된다
+        document.write("출력");
+    }
+    var fnc2 = function(){alert("알림");}
+
+    //간단한 객체 정의 문법
+    var obj = {
+        name:"ㄱㄷㄷ",   //필드
+        age:29,
+        height:165,
+        method1:function(num1){
+            document.getElementById("res2").innerHTML = "<strong>ㄱㄱㄱ</strong>";
+        }
+    };
+    
+    document.getElementById("res2").innerText = obj.name + obj.age + obj.height;
+    //메소드 호출방법
+    obj.method1();
+
+
+    function fnc3(){
+        var result = document.getElementById("result");//태그의 아이디에 의한 접근
+        var el = document.getElementsByClassName("lst") ;//태그의 클래스에 의한 접근 -배열 e1[0],e1[1]
+        // document-현재문서 getElementById-()안의 id를 가져와라
+        //getElements s붙은거 보니까 배열이다
+        var a = document.getElementsByTagName("a");//태그의 태그명에 의한 접근-배열e[0],e[1],e[2]
+        var res2 = document.querySelector("#result");
+        var item = document.querySelectorAll(".lst li");//선택자 //배열 item[0]~item[7]까지 존재
+        console.log(item)
+        
+        result.innerText = data2;
+        for(var i = 0; i<item.length;i++){ //item의 요소 수만큼 반복
+            item[i].innerHtml = "<strong>"+data3+"</strong>";
+        }    
+    }
+
+    var btn2 = document.getElementById("btn2")
+    btn2.addEventListener("click",function(){
+        fnc3();
+    });
+    /*
+    함수 호출방법
+    fnc1():
+    fnc2()
+    */
+
+    </script>
+</body>
+</html>
