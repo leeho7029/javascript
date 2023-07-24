@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기본07-조건문/반복문</title>
+</head>
+<body>
+    <h2>과목별 점수</h2>
+    <ul class="lst" id="lst1">
+        <li class="item1">80</li>
+        <li class="item2">100</li>
+        <li class="item3">90</li>
+        <li class="item4">95</li>
+        <li class="item5">85</li>
+    </ul>
+    <hr>
+    <!-- div#tot+div#avg+div#pan+div#hak+div#remark+div#sang -->
+    <div id="tot"></div>
+    <div id="avg"></div>
+    <div id="pan"></div>
+    <div id="hak"></div>
+    <div id="remark"></div>
+    <div id="sang"></div>
+    <div class="btn-group">
+        <button type="button" onclick="compute()">계산</button>
+    </div>
+    <script>
+        //총점 : 다섯 과목 점수의 합계
+        //평균 : 총점 / 5
+        //판정 : 모든 점수가 80이상이고, 평균이 70점 이상이면 합격, 아니면 불합격
+        //학점 : 평균이 90이상이면 "A", 80이상이면 B, 70이상 C, 70미만 F
+        //참고사항(remark) : 학점이 A이면 고득점, B이면 우수, C이면 보통, 기타는 재평가
+        //과목우수상(sang): 어느 한 과목이라도 100이면 과목우수 아니면 해당없음
+        
+        var tot = document.getElementById("tot");
+        var avg= document.getElementById("avg");
+        var pan= document.getElementById("pan");
+        var hak= document.getElementById("hak");
+        var remark= document.getElementById("remark");
+        var sang= document.getElementById("sang");
+
+     
+        function compute(){
+            aa=document.querySelector(".item1").innerHTML;
+            bb=document.querySelector(".item2").innerHTML;
+            cc=document.querySelector(".item3").innerHTML;
+            dd=document.querySelector(".item4").innerHTML;
+            ee=document.querySelector(".item5").innerHTML;
+            
+            a =parseInt(aa);
+            b =parseInt(bb);
+            c =parseInt(cc);
+            d =parseInt(dd);
+            e =parseInt(ee);
+            
+            tot.innerHTML = "<p>"+(a+b+c+d+e)+"</p>";
+            avg.innerHTML = "<p>"+(a+b+c+d+e)/5+"</p>";
+             
+            if(avg>=80 && tot>=400){
+                pan.innerHTML = "<p>합격</p>"
+            }else{pan.innerHTML ="<p>불합격</p>"}
+
+             if(avg>=90){
+                hak.innerHTML ="<p>A</p>"
+            }   else if(avg>=80){
+                hak.innerHTML = "<p>B</p>"
+            } else if (avg>=70){
+                hak.innerHTML = "<p>C</p>"
+            }else{
+                hak.innerHTML = "<p>F</p>"
+            }
+
+            if(hak=="A"){
+                remark.innerHTML =  "<p>고득점</p>"
+            }else if(hak=="B"){
+                remark.innerHTML = "<p>우수</p>"
+            }else if(hak=="C"){
+                remark.innerHTML =  "<p>보통</p>"
+            }else{
+                remark.innerHTML =  "<p>재평가</p>"
+            }
+
+            if(a==100 || b==100 || c==100 || d==100 || e==100){
+                sang.innerHTML =  "<p>과목우수</p>"
+            }else{sang.innerHTML ="<p>해당사항 없음</p>"}
+            
+        }
+
+        // var aa = jjj.innerText; 값을 가져오는 get역할
+        // jjj.innerText = aa; 값을 저장하는 set역할
+
+    </script>
+</body>
+</html>
