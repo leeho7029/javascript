@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기본08 - 이벤트</title>
+    <script></script>
+</head>
+<body>
+    <!-- div#box$.box{박스$}*8 -->
+    <div id="box1" class="box" onclick="clk1()">박스1</div>
+    <div id="box2" class="box" onblclick="clk2()">박스2</div>
+    <div id="box3" class="box" onclick="">박스3</div>
+    <div id="box4" class="box" >박스4</div>
+    <div id="box5" class="box" >박스5</div>
+    <div id="box6" class="box" >박스6</div>
+    <div id="box7" class="box" >박스7</div>
+    <div id="box8" class="box" >박스8</div>
+    <hr>
+    <div id="res1" class="res"></div>
+    <hr>
+
+    <script>
+        //이벤트 : 사용자가 어떤 특정 행위를 했을 때의 사건
+        //구예진님이 버튼3을 마우스로 클릭
+        //버튼3 => 이벤트타겟
+        //클릭 => 이벤트핸들러
+        //개발자는 버튼3을 마우스로 눌렀을 경우 해당 서비스를 진행하게 되는데
+        //이처럼 이벤트란, 이벤트 타겟, 이벤트핸들러, 서비스를 모두 합쳐 말함.
+        //이벤트 적용방법:
+        //인라인이벤트 : 해당하는 요소(태그)에 필요한 이벤트핸들러를 속성(attribute)직접 기술하는 것.
+        //스크립트이벤트 : 스크립트 태그의 안쪽에 필요한 이벤트핸들러를 해당 요소를 선택하여 필요한 이벤트를 적용하는 것
+        //이벤트 종류 : 마우스 이벤트, 키보드 이벤트, 폼 이벤트, 기타 이벤트
+        //1. 마우스 이벤트 : click, dblclick, mouseover/hover/mouseenter, mouseout/mouseleave,
+        //mousedown, mouseup, mousemove, contextmenu, scroll(wheel)/mousewheel, 
+        //2. 키보드 이벤트 : keypress, keydown, keyup
+        //3. 폼 관련 이벤트 : focus, blur, change, submit, reset, select
+        //4. 기타 이벤트 : load, abort(중단), unload, resize, scroll(스크롤바를 움직일 때) 
+
+        function clk1(){
+            alert("혼자옵서예~!")
+
+        }
+        function clk2(){
+            alert(a+"가 오셨군요~! 더블클릭")
+        }
+        /*
+        var box3 = document.getElementById("box3")
+        box3.addEventListener("click",function(e){
+            e.target
+
+        });
+        */
+        var box = document.getElementsByClassName("box")
+        
+    </script>
+        <form action="" id="join-form" onsubmit="return join(this)" method="false"><!--주소창에 다뜨기 떄문에 메솓 false로 해야됨-->
+            <fieldset>
+                <legend>가입정보</legend>
+                <table>
+                    <tbody>
+                        <!-- tr*5>(th>lavel[for=field$])+(td>input[name=field$]#field$) -->
+                        <tr>
+                            <th>
+                                <lavel for="field1">아이디</lavel>
+                            </th>
+                            <td><input type="text" name="field1" id="field1" required></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <lavel for="field2">비밀번호</lavel>
+                            </th>
+                            <td><input type="text" name="field2" id="field2" required></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <lavel for="field3">비밀번호 확인</lavel>
+                            </th>
+                            <td><input type="text" name="field3" id="field3" required></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <lavel for="field4">이름</lavel>
+                            </th>
+                            <td><input type="text" name="field4" id="field4" required></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <lavel for="field5">이메일</lavel>
+                            </th>
+                            <td><input type="text" name="field5" id="field5" required></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="text">
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </form>
+        <script>
+            //폼 입력 값에 대한 유효성 검증
+            function join(frm){
+                if(f)
+            }
+        </script>
+</body>
+</html>

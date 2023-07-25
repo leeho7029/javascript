@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기본10 - screen & window</title>
+</head>
+<body>
+    <div id="btn1">객체속성 출력</div> <!--보더 solid해야 칸이 생김, ^=   -->
+    <div id="btn2">객체속성 인쇄</div> <!-- 패딩-보더와 글자의 간격 // 마진-창 왼쪽부터의 간격 --->
+    <div id="btn3" style="border: 3px solid orange; width: min-content; margin: 10px; padding: auto ; color: aquamarine;" onclick="javascript:window.close()">창 닫기</div>  <!--간단한건 직접 넣어도된다 이벤트리스너 만들필요 없음 -->
+    <div id="res"></div>
+    <script>
+        var res = document.getElementById("res")
+        var btn1 = document.getElementById("btn1")
+        btn1.addEventListener("click",function(){
+            req();
+        })
+        btn2.addEventListener("click",function(){
+            window.print();
+        })
+        
+    function req(){
+        var html = "";
+        for(var key in window){
+            html+="<p>"+key+" :"+window[key]+"</p>";
+        }
+        res.innerHTML = html
+    }
+
+    /*
+    function req(){
+        var html = "";
+        for(var key in screen){
+            html+="<p>"+key+" :"+screen[key]+"</p>";
+        }
+        res.innerHTML = html
+    }
+    */
+    </script>
+</body>
+</html>
